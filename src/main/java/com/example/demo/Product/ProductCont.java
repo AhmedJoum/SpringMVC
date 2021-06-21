@@ -20,6 +20,7 @@ public class ProductCont {
     }
 
     @GetMapping
-    public List<Product> getProduct() { return productService.getProduct();
+    public List<Product> getProduct() {
+        return productService.search("k");
     }
 }

@@ -15,16 +15,18 @@ public class UserService {
         return userRep.findAll();
     }
 
-    public boolean login(String userName, String password) {
-        var users = userRep.findAll();
-        for (User user : users) {
-            var user_name = user.getUser_name();
-            var pass = user.getPassword();
-            if (user_name.equals(userName.trim().toLowerCase()) && pass.equals(password)) {
-                return true;
-            }
+    public User login(String userName, String password) {
+        var user = userRep.login(userName, password);
+        return user;
+    }
+
+    public boolean register(User user) {
+        try {
+            userRep.save(user);
+            return true;
+        } catch (Exception e) {
+            return false;
         }
-        return false;
     }
 
 }

@@ -1,5 +1,9 @@
 package com.example.demo.User;
 
+import com.example.demo.OrderHdr.OrderHdr;
+import com.example.demo.OrderHdr.OrderHdrRep;
+
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -24,9 +28,20 @@ public class User {
     private String full_name;
     private String password;
     private int Type;
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<OrderHdr> orders;
 
     // standard constructors
     public User() {
+    }
+
+    public List<OrderHdr> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderHdr> orders) {
+        this.orders = orders;
     }
 
     public int getType() {

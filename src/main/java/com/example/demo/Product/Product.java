@@ -4,6 +4,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.persistence.*;
 import java.net.URL;
+import java.util.List;
+import com.example.demo.OrderProducts.OrderProducts;
 
 @Entity
 @Table
@@ -21,33 +23,43 @@ public class Product {
 
 
     private Long product_id;
-    private String Product_name;
-    private String Description;
-    private URL ImgPath;
+    private String product_name;
+    private String description;
+    private String img_path;
     private long price;
-    private int InStockQty;
-
+    private int in_stock_qty;
+    @OneToMany
+    @JoinColumn(name = "product_id")
+    private List<OrderProducts> order_products;
 
     // standard constructors
 
     public Product() {
     }
 
-    public Product(Long product_id, String product_name, String description, URL imgPath, long price, int inStockQty) {
-        this.product_id = product_id;
-        Product_name = product_name;
-        Description = description;
-        ImgPath = imgPath;
-        this.price = price;
-        InStockQty = inStockQty;
+    public List<OrderProducts> getOrder_products() {
+        return order_products;
     }
 
-    public Product(String product_name, String description, URL imgPath, long price, int inStockQty) {
-        Product_name = product_name;
-        Description = description;
-        ImgPath = imgPath;
+    public void setOrder_products(List<OrderProducts> order_products) {
+        this.order_products = order_products;
+    }
+
+    public Product(Long product_id, String product_name, String description, String imgPath, long price, int inStockQty) {
+        this.product_id = product_id;
+        product_name = product_name;
+        description = description;
+        img_path = imgPath;
         this.price = price;
-        InStockQty = inStockQty;
+        in_stock_qty = inStockQty;
+    }
+
+    public Product(String product_name, String description, String imgPath, long price, int inStockQty) {
+        product_name = product_name;
+        description = description;
+        img_path = imgPath;
+        this.price = price;
+        in_stock_qty = inStockQty;
     }
 
     // standard getters and setters
@@ -62,27 +74,27 @@ public class Product {
     }
 
     public String getProduct_name() {
-        return Product_name;
+        return product_name;
     }
 
     public void setProduct_name(String product_name) {
-        Product_name = product_name;
+        product_name = product_name;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        description = description;
     }
 
-    public URL getImgPath() {
-        return ImgPath;
+    public String getImgPath() {
+        return img_path;
     }
 
-    public void setImgPath(URL imgPath) {
-        ImgPath = imgPath;
+    public void setImgPath(String imgPath) {
+        img_path = imgPath;
     }
 
     public long getPrice() {
@@ -94,11 +106,11 @@ public class Product {
     }
 
     public int getInStockQty() {
-        return InStockQty;
+        return in_stock_qty;
     }
 
     public void setInStockQty(int inStockQty) {
-        InStockQty = inStockQty;
+        in_stock_qty = inStockQty;
     }
 }
 

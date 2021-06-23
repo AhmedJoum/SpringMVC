@@ -1,116 +1,126 @@
 package com.example.demo.Product;
 
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
 import javax.persistence.*;
-import java.net.URL;
 import java.util.List;
 import com.example.demo.OrderProducts.OrderProducts;
+import com.example.demo.productImgs.ProductImgs;
 
 @Entity
 @Table
 public class Product {
     @Id
     @SequenceGenerator(
-            name = "product_sequence",
-            sequenceName = "product_sequence",
+            name = "productSequence",
+            sequenceName = "productSequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "product_sequence"
+            generator = "productSequence"
     )
 
 
-    private Long product_id;
-    private String product_name;
+    private Long productId;
+    private String productName;
     private String description;
-    private String img_path;
+    private String imgPath;
     private long price;
-    private int in_stock_qty;
+    private int inStockQty;
     @OneToMany
-    @JoinColumn(name = "product_id")
-    private List<OrderProducts> order_products;
+    @JoinColumn(name = "productId")
+    private List<OrderProducts> orderProducts;
 
-    // standard constructors
+    @OneToMany
+    @JoinColumn(name = "productId")
+    private List<ProductImgs> productImgs;
+
+    
 
     public Product() {
     }
 
+    public List<ProductImgs> getProductImgs() {
+        return productImgs;
+    }
+
+    public void setProductImgs(List<ProductImgs> productImgs) {
+        this.productImgs = productImgs;
+    }
+
     public List<OrderProducts> getOrder_products() {
-        return order_products;
+        return orderProducts;
     }
 
-    public void setOrder_products(List<OrderProducts> order_products) {
-        this.order_products = order_products;
+    public void setOrder_products(List<OrderProducts> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 
-    public Product(Long product_id, String product_name, String description, String imgPath, long price, int inStockQty) {
-        this.product_id = product_id;
-        product_name = product_name;
-        description = description;
-        img_path = imgPath;
+    public Product(Long productId, String productName, String description, String imgPath, long price, int inStockQty) {
+        this.productId = productId;
+        this.productName = productName;
+        this.description = description;
+        this.imgPath = imgPath;
         this.price = price;
-        in_stock_qty = inStockQty;
+        this.inStockQty = inStockQty;
     }
 
     public Product(String product_name, String description, String imgPath, long price, int inStockQty) {
-        product_name = product_name;
-        description = description;
-        img_path = imgPath;
+        this.productName = product_name;
+        this.description = description;
+        this.imgPath = imgPath;
         this.price = price;
-        in_stock_qty = inStockQty;
+        this.inStockQty = inStockQty;
     }
 
     // standard getters and setters
 
 
-    public Long getProduct_id() {
-        return product_id;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(Long product_id) {
-        this.product_id = product_id;
+    public void setProductId(Long value) {
+        this.productId = value;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct_name(String product_name) {
-        product_name = product_name;
+    public void setProductName(String value) {
+        this.productName = value;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        description = description;
+    public void setDescription(String value) {
+        this.description = value;
     }
 
     public String getImgPath() {
-        return img_path;
+        return imgPath;
     }
 
-    public void setImgPath(String imgPath) {
-        img_path = imgPath;
+    public void setImgPath(String value) {
+        this.imgPath = value;
     }
 
     public long getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
-        this.price = price;
+    public void setPrice(long value) {
+        this.price = value;
     }
 
     public int getInStockQty() {
-        return in_stock_qty;
+        return inStockQty;
     }
 
-    public void setInStockQty(int inStockQty) {
-        in_stock_qty = inStockQty;
+    public void setInStockQty(int value) {
+       this.inStockQty = value;
     }
 }
 

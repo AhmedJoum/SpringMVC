@@ -1,7 +1,6 @@
 package com.example.demo.User;
 
 import com.example.demo.OrderHdr.OrderHdr;
-import com.example.demo.OrderHdr.OrderHdrRep;
 
 import java.util.List;
 
@@ -13,23 +12,23 @@ public class User {
 
     @Id
     @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
+            name = "userSequence",
+            sequenceName = "userSequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
+            generator = "userSequence"
     )
 
 
-    private Long user_id;
-    private String user_name;
-    private String full_name;
+    private Long userId;
+    private String userName;
+    private String fullName;
     private String password;
-    private int Type;
+    private int type;
     @OneToMany
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private List<OrderHdr> orders;
 
     // standard constructors
@@ -45,59 +44,59 @@ public class User {
     }
 
     public int getType() {
-        return Type;
+        return type;
     }
 
     public void setType(int type) {
-        this.Type = type;
+        this.type = type;
     }
 
-    public User(Long user_id, String user_name, String full_name, String password) {
-        this.user_id = user_id;
-        this.user_name = user_name;
-        this.full_name = full_name;
+    public User(Long userId, String userName, String fullName, String password) {
+        this.userId = userId;
+        this.userName = userName;
+        this.fullName = fullName;
         this.password = password;
     }
 
-    public User(String user_name, String full_name, String password) {
-        this.user_name = user_name;
-        this.full_name = full_name;
+    public User(String userName, String fullName, String password) {
+        this.userName = userName;
+        this.fullName = fullName;
         this.password = password;
     }
 
 
     // standard getters and setters
 
-    public Long getUser_id() {
-        return user_id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUserId(Long value) {
+        this.userId = value;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String value) {
+        this.userName = value;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String value) {
+        this.fullName = value;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String value) {
+        this.password = value;
     }
 }
 

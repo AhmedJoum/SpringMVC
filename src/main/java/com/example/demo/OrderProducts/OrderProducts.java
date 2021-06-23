@@ -7,56 +7,56 @@ import javax.persistence.*;
 public class OrderProducts {
 
     @Id
-    @SequenceGenerator(name = "orderProduct_sequence", sequenceName = "orderProduct_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderProduct_sequence")
+    @SequenceGenerator(name = "orderProductSequence", sequenceName = "orderProductSequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderProductSequence")
 
-    private long order_products_id;
-    private Long order_id;
-    private Long product_id;
-    private int Qty;
+    private long orderProductsId;
+    private Long orderId;
+    private Long productId;
+    private int qty;
 
     // standard constructors
 
     public OrderProducts() {
     }
 
-    public long getOrder_products_id() {
-        return order_products_id;
+    public long getOrderProductsId() {
+        return orderProductsId;
     }
 
-    public void setOrder_products_id(long order_products_id) {
-        this.order_products_id = order_products_id;
+    public void setOrderProductsId(long order_products_id) {
+        this.orderProductsId = order_products_id;
     }
 
-    public OrderProducts(Long order_id, Long product_id, int qty) {
-        this.order_id = order_id;
-        this.product_id = product_id;
-        Qty = qty;
+    public OrderProducts(Long orderId, Long productId, int qty) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.qty = qty;
     }
 
     // standard getters and setters
 
-    public Long getOrder_id() {
-        return order_id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(Long order_id) {
-        this.order_id = order_id;
+    public void setOrderId(Long order_id) {
+        this.orderId = order_id;
     }
 
-    public Long getProduct_id() {
-        return product_id;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(Long product_id) {
-        this.product_id = product_id;
+    public void setProductId(Long product_id) {
+        this.productId = product_id;
     }
 
     public int getQty() {
-        return Qty;
+        return qty;
     }
 
     public void setQty(int qty) {
-        Qty = qty;
+      this.qty = qty;
     }
 }

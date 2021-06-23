@@ -43,9 +43,11 @@
                         </div>
                     </div>
                     <div class="col-lg-7 col-lg-7">
+
                         <div class="advanced-search">
                             <button type="button" class="category-btn">All Categories</button>
-                            <form action="#" class="input-group">
+                            <form action="#" th:action="@{/product/search/}" th:object="${keyword}" method="POST"
+                                class="input-group">
                                 <input type="text" placeholder="What do you need?">
                                 <button type="button"><i class="ti-search"></i></button>
                             </form>
@@ -617,7 +619,7 @@
     </div>
     <!-- Partner Logo Section End -->
 
-  
+
 
     <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +27,7 @@ User user = new User();
 
     @PostMapping(path =  "/validateLogin")
     public String validateLogin(@ModelAttribute("user") User user) {
-        var loginUser = userService.login(user.getUser_name(), user.getPassword());
+        var loginUser = userService.login(user.getUserName(), user.getPassword());
         if (loginUser.equals(null)) {
             return "/login";
         } else {

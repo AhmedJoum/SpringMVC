@@ -3,8 +3,6 @@ package com.example.demo.OrderHdr;
 import java.util.List;
 
 import javax.persistence.*;
-
-import com.example.demo.User.User;
 import com.example.demo.OrderProducts.OrderProducts;
 
 @Entity
@@ -12,76 +10,76 @@ import com.example.demo.OrderProducts.OrderProducts;
 public class OrderHdr {
 
     @Id
-    @SequenceGenerator(name = "order_sequence", sequenceName = "order_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_sequence")
+    @SequenceGenerator(name = "orderSequence", sequenceName = "orderSequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderSequence")
 
-    private Long order_id;
-    private Long user_id;
-    private String status;
-    private long total_price;
+    private Long orderId;
+    private Long userId;
+    private OrderStatus status;
+    private long totalPrice;
 
     @OneToMany
-    @JoinColumn(name = "order_id")
-    private List<OrderProducts> order_products;
+    @JoinColumn(name = "orderId")
+    private List<OrderProducts> orderProducts;
 
     // standard constructors
 
     public OrderHdr() {
     }
 
-    public OrderHdr(Long order_id, long user_id, String status, long total_price) {
-        this.order_id = order_id;
-        this.user_id = user_id;
+    public OrderHdr(Long orderId, long userId, OrderStatus status, long totalPrice) {
+        this.orderId = orderId;
+        this.userId = userId;
         this.status = status;
-        this.total_price = total_price;
+        this.totalPrice = totalPrice;
     }
 
-    public OrderHdr(long user_id, String status, long total_price) {
-        this.user_id = user_id;
+    public OrderHdr(long userId, OrderStatus status, long totalPrice) {
+        this.userId = userId;
         this.status = status;
-        this.total_price = total_price;
+        this.totalPrice = totalPrice;
     }
 
     // standard getters and setters
 
-    public List<OrderProducts> getOrder_products() {
-        return order_products;
+    public List<OrderProducts> getOrderProducts() {
+        return orderProducts;
     }
 
-    public void setOrder_products(List<OrderProducts> value) {
-        order_products = value;
+    public void setOrderProducts(List<OrderProducts> value) {
+        orderProducts = value;
     }
 
-    public Long getOrder_id() {
-        return order_id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(Long order_id) {
-        this.order_id = order_id;
+    public void setOrderId(Long value) {
+        this.orderId = value;
     }
 
     public Long getUser_id() {
-        return user_id;
+        return userId;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUserId(Long value) {
+        this.userId = value;
     }
 
-    public String getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 
-    public long getTotal_price() {
-        return total_price;
+    public long getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotal_price(long total_price) {
-        this.total_price = total_price;
+    public void setTotalPrice(long value) {
+        this.totalPrice = value;
     }
 
 }

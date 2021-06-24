@@ -46,10 +46,10 @@
 
                         <div class="advanced-search">
                             <button type="button" class="category-btn">All Categories</button>
-                            <form action="#" th:action="@{/product/search/}" th:object="${keyword}" method="POST"
+                            <form action="#" th:action="@{/shop/search}" th:object="${keyword}" method="POST"
                                 class="input-group">
-                                <input type="text" placeholder="What do you need?">
-                                <button type="button"><i class="ti-search"></i></button>
+                                <input type="text" placeholder="What do you need?" th:field="*{keyword}">
+                                <button type="submit"><i class="ti-search"></i></button>
                             </form>
                         </div>
                     </div>

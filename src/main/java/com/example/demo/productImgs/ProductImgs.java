@@ -1,4 +1,4 @@
-package com.example.demo.productImgs;
+package com.example.demo.ProductImgs;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

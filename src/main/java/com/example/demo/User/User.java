@@ -20,13 +20,12 @@ public class User {
             strategy = GenerationType.SEQUENCE,
             generator = "userSequence"
     )
-
-
     private Long userId;
     private String userName;
     private String fullName;
     private String password;
     private int type;
+
     @OneToMany
     @JoinColumn(name = "userId")
     private List<OrderHdr> orders;

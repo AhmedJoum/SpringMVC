@@ -3,7 +3,7 @@ package com.example.demo.Product;
 import javax.persistence.*;
 import java.util.List;
 import com.example.demo.OrderProducts.OrderProducts;
-import com.example.demo.productImgs.ProductImgs;
+import com.example.demo.ProductImgs.*;
 
 @Entity
 @Table

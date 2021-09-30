@@ -73,8 +73,8 @@
             <div class="container">
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
+                        <li><a href="/shop/home">Home</a></li>
+                        <li><a href="/shop/search">Shop</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
@@ -105,25 +105,26 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                         <h2>Register</h2>
-                        <form action="#" th:action="@{/user/saveUser/}" th:object="${user}" method="POST">
+                        <form action="#" th:action="@{/shop/save-product/}" th:object="${product}" method="POST">
                             <div class="group-input">
-                                <label for="fullname">Full Name</label>
-                                <input type="text" id="fullname" th:field="*{fullName}">
+                                <label for="productName">Producat Name</label>
+                                <input type="text" id="productName" th:field="*{productName}">
                             </div>
                             <div class="group-input">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" th:field="*{userName}">
+                                <label for="description">Description</label>
+                                <input type="text" id="description" th:field="*{description}">
                             </div>
                             <div class="group-input">
-                                <label for="pass">Password *</label>
-                                <input type="password" id="pass" th:field="*{password}">
+                                <label for="price">Price</label>
+                                <input type="text" id="price" th:field="*{price}">
                             </div>
-                            <button type="submit" class="site-btn register-btn">REGISTER</button>
+
+                            <div class="group-input">
+                                <label for="inStockQty">Stock Qty</label>
+                                <input type="text" id="inStockQty" th:field="*{inStockQty}">
+                            </div>
+                            <button type="submit" class="site-btn register-btn">Add Product</button>
                         </form>
-                        <p style="color: red;" th:text="${error}"></p>
-                        <div class="switch-login">
-                            <a href="/user/login" class="or-login">Or Login</a>
-                        </div>
                     </div>
                 </div>
             </div>

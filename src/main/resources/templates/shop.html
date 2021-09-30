@@ -73,8 +73,11 @@
             <div class="container">
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
+                        <li><a href="/shop/home">Home</a></li>
+                        <li><a href="/shop/search">Shop</a></li>
+                        <span th:text="${user.type == 2}">
+                            <li><a href="/shop/add-product">Add Product</a></li>
+                        </span>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

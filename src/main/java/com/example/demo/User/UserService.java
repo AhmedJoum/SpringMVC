@@ -22,8 +22,14 @@ public class UserService {
 
     public boolean register(User user) {
         try {
+          var userExist =   userRep.GetByUserName(user.getUserName()); 
+          if(userExist == null)
+          {
             userRep.save(user);
             return true;
+          }
+
+          return false;
         } catch (Exception e) {
             return false;
         }

@@ -99,8 +99,14 @@ public class Product {
         this.description = value;
     }
 
+    @Transient
     public String getImgPath() {
-        return imgPath;
+        if (imgPath == null || imgPath.length() == 0  || productId == null)
+            return "/product-imgs/no-img.jpeg";
+
+        var path = "/product-imgs/" + productId + "/" + imgPath;
+        System.out.println(path);
+        return path;
     }
 
     public void setImgPath(String value) {

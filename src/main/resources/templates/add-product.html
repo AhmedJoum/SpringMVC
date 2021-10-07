@@ -105,9 +105,13 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                         <h2>Register</h2>
-                        <form action="#" th:action="@{/shop/save-product/}" th:object="${product}" method="POST">
+                        <form action="#"
+                              th:action="@{/shop/save-product/}"
+                              th:object="${product}"
+                              method="POST"
+                              enctype="multipart/form-data">
                             <div class="group-input">
-                                <label for="productName">Producat Name</label>
+                                <label for="productName">Product Name</label>
                                 <input type="text" id="productName" th:field="*{productName}">
                             </div>
                             <div class="group-input">
@@ -118,11 +122,15 @@
                                 <label for="price">Price</label>
                                 <input type="text" id="price" th:field="*{price}">
                             </div>
-
                             <div class="group-input">
                                 <label for="inStockQty">Stock Qty</label>
                                 <input type="text" id="inStockQty" th:field="*{inStockQty}">
                             </div>
+                            <div class="group-input">
+                                <label >Product Images</label>
+                            <input type="file" id="image" name="image" accept="image/png, image/jpeg" />
+                            </div>
+
                             <button type="submit" class="site-btn register-btn">Add Product</button>
                         </form>
                     </div>
